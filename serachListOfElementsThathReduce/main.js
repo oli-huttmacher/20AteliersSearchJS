@@ -46,14 +46,6 @@ const tabFruits = [
   "Yuzu", // Y
   "Ziziphus", // Z (fruit proche du jujube)
 ];
-console.log(tabFruits);
-// affiche la liste de fruits dans le dom ul>li class="listDeFruits"
-
-// tabFruits.forEach((elFruit) => {
-//   const li = document.createElement("li");
-//   li.textContent = elFruit;
-//   ulList.appendChild(li);
-// });
 
 // function ecoute l'input------------------
 searchInput.addEventListener("input", (e) => {
@@ -61,11 +53,7 @@ searchInput.addEventListener("input", (e) => {
   handleInput(e.target.value);
 });
 
-function handleInput(input) {
-  //input.value
-  //qu'est ce que l'on fait avec cette valeur de l'input
-  //ne dois pa stoucher au DOM
-}
+
 function renderList(tab) {
   //vider les Ul a chaque applle
   //creer un list par el
@@ -92,6 +80,7 @@ function renderMeta(nbResultatsVisibles, nbResultatsTotal, termeRecherche) {
 
   console.log(nbResultatsVisibles, nbResultatsTotal, termeRecherche);
 }
+//que fait filterItems ? on sait pas
 function filterItems(sourceTab, texteRecherche) {
   const rechercheNormalisee = texteRecherche.trim().toLowerCase();
   if (rechercheNormalisee === "") return sourceTab;
@@ -100,6 +89,11 @@ function filterItems(sourceTab, texteRecherche) {
     unFruit.toLowerCase().includes(rechercheNormalisee)
   );
 }
+
+/**
+ * Gère ce que l’utilisateur tape dans l’input.
+ * @param {string} rawValue - Texte brut venant de e.target.value
+ */
 function handleInput(rawValue) {
   // 1. normaliser la saisie
   const texte = rawValue.trim().toLowerCase();

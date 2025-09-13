@@ -1,0 +1,70 @@
+"use strict";
+console.log("TS prêt à compiler !");
+console.log("hello les mec");
+console.log("je suis sur watch....");
+//tableaux d'objet fruits de A à Z----------------------------
+const tabFruits = [
+    "Abricot", // A
+    "Ananas",
+    "Banane", // B
+    "Cerise", // C
+    "curcuma", //racine
+    "Datte", // D
+    "Elderberry", // E (baie de sureau)
+    "Figue", // F
+    "Fruit de la Passion",
+    "Goyave", // G
+    "Grenade",
+    "Gingembre", //racine
+    "Huckleberry", // H (myrtille américaine)
+    "Ikéban", // I (fruit rare, mais on peut mettre "Ita Palm" = fruit du palmier d’Ita)
+    "Jujube", // J
+    "Kiwi/vert", // K
+    "Litchi", // L
+    "Mangue", // M
+    "Mate/Paraguay",
+    "Nectarine", // N
+    "Orange", // O
+    "Papaye", // P
+    "pomme",
+    "Quetsche", // Q (prune d’Alsace)
+    "Raisin", // R
+    "Sapote", // S
+    "Tamarillo", // T (tomate en arbre)
+    "Ugli", // U (agrume jamaïcain)
+    "Vanille", // V (la gousse est le fruit de l’orchidée)
+    "Watermelon", // W (pastèque en anglais)
+    "Xigua", // X (variété chinoise de pastèque)
+    "Yuzu", // Y
+    "Ziziphus", // Z (fruit proche du jujube)
+];
+//attrape le DOM => catch the DOM
+const btn = document.getElementById("btn");
+const containerUl = document.getElementById("containerUl");
+//type littéral ou union de types.
+// Ça veut dire : “la variable sens peut uniquement valoir "gauche" OU "droite"”.
+let sens = "gauche";
+//listener sur btn
+btn.addEventListener("click", (e) => {
+    sens = sens === "gauche" ? "droite" : "gauche";
+    render(tabFruits);
+    console.log("le sens a changer");
+});
+//création des li dans ul des fruits
+function render(tab) {
+    containerUl.innerHTML = "";
+    // 1. créer deux versions triées
+    const tabSortGauche = [...tab].sort((a, b) => a.localeCompare(b));
+    const tabSortDroit = [...tab].sort((a, b) => b.localeCompare(a));
+    // 2. choisir en fonction du sens
+    const tabSort = sens === "gauche" ? tabSortGauche : tabSortDroit;
+    console.log(tabSortGauche);
+    for (let fruit of tabSort) {
+        const li = document.createElement("li");
+        li.classList = "listFruits";
+        li.textContent = fruit;
+        containerUl.appendChild(li);
+    }
+}
+render(tabFruits);
+//render
