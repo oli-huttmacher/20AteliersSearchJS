@@ -1,0 +1,37 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+h1{
+  color: red;
+}
+input{
+  margin: 10px 10px;
+}
+input::placeholder{
+  color: rgb(188, 188, 188);
+  padding: 4px;
+  
+}
+#render{
+  /* width:400px;
+  height: 400px; */
+  background-color: grey;
+  color: orange;
+  padding: 10px 10px 10px 20px ;
+}
+.discover_fruit{
+  margin: 5px 0px;
+  background: rgb(236, 233, 211);
+  padding: 10px 10px 10px 10px ;
+  border-bottom:1px solid rgb(205, 205, 205);
+}

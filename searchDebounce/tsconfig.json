@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",          // version JS de sortie
+    "module": "ES6",          // modules modernes
+    "rootDir": "./src",       // ton code TypeScript
+    "outDir": "./dist",       // le JS généré
+    "strict": true,           // vérifications strictes
+    "esModuleInterop": true,  // compatibilité import/export
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"]
+}

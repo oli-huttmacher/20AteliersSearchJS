@@ -1,6 +1,3 @@
-console.log("TS prêt à compiler !");
-console.log("hello les mec");
-console.log("je suis sur watch....");
 //tableaux d'objet fruits de A à Z----------------------------
 const tabFruits: string[] = [
   "Abricot", // A
@@ -51,17 +48,18 @@ btn.addEventListener("click", (e) => {
   console.log("le sens a changer");
 });
 
+// Fonction métier (logique pure)
+function sortFruits(tab: string[], sens: "gauche" | "droite"): string[] {
+  return [...tab].sort((a, b) =>
+    sens === "gauche" ? a.localeCompare(b) : b.localeCompare(a)
+  );
+}
 //création des li dans ul des fruits
 function render(tab: string[]) {
+  //vide le container Ul
   containerUl.innerHTML = "";
-  // 1. créer deux versions triées
-  const tabSortGauche = [...tab].sort((a, b) => a.localeCompare(b));
-  const tabSortDroit = [...tab].sort((a, b) => b.localeCompare(a));
-  // 2. choisir en fonction du sens
-  const tabSort = sens === "gauche" ? tabSortGauche : tabSortDroit;
-
-  console.log(tabSortGauche);
-  for (let fruit of tabSort) {
+   const sorted = sortFruits(tab, sens); // appelle la logique métier
+  for (let fruit of sorted) {
     const li = document.createElement("li");
     li.classList = "listFruits";
     li.textContent = fruit;
